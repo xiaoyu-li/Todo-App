@@ -1,0 +1,22 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "A basic react todo app with AntDesign style",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoyu-li/Todo-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoyu-li/Todo-App/issues"
+  },
+  "homepage": "https://github.com/xiaoyu-li/Todo-App#readme"
+}

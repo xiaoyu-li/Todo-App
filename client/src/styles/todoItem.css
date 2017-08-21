@@ -10,4 +10,17 @@
 
 .todoItem-title {
   flex: 1 1 auto;
+  font-size: 15px;
+}
+
+.todoItem-completed {
+  text-decoration: line-through;
+}
+
+.todoItem-star {
+  font-size: 15px;
+}
+
+.todoItem-star-active {
+  color: red;
 }

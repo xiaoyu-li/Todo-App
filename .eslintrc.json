@@ -22,7 +22,6 @@
     "react/no-did-mount-set-state": 1,
     "react/jsx-filename-extension": 0,
     "class-methods-use-this": 1,
-    "no-underscore-dangle": 1,
-    "linebreak-style": 0
+    "no-underscore-dangle": 1
   }
 }

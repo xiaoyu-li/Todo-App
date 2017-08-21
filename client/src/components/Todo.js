@@ -11,14 +11,14 @@ const data = [
 ];
 const visible = ['SHOW_ALL', 'SHOW_COMPLETE', 'SHOW_ACTIVE'];
 
-class Todo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [],
-      visible: 'SHOW_ACTIVE',
-    };
-  }
+export default class Todo extends Component {
+  static propTypes = {};
+  static defaultProps = {};
+
+  state = {
+    todos: [],
+    visible: 'SHOW_ALL',
+  };
 
   componentDidMount() {
     this.setState({ todos: data });
@@ -31,7 +31,6 @@ class Todo extends Component {
       }
       return item;
     });
-    console.log(this.state.todos);
     this.setState({
       todos: updatedTodos,
     });
@@ -39,7 +38,6 @@ class Todo extends Component {
 
   handleSubmit = (e, task) => {
     e.preventDefault();
-    console.log(this.state.todos.length);
     const newTodo = {
       id: this.state.todos.length.toString(),
       title: task,
@@ -86,4 +84,3 @@ class Todo extends Component {
     );
   }
 }
-export default Todo;

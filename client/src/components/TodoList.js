@@ -22,7 +22,7 @@ function TodoList(props) {
   const visibleTodos = getVisibleTodos(todos, visible);
   console.log(visibleTodos);
   visibleTodos.forEach((todo, index) => {
-    rows.push(<TodoItem key={todo.id} title={todo.title} onCheck={() => handleCheck(todo.id)} />);
+    rows.push(<TodoItem key={todo.id} todo={todo} onCheck={() => handleCheck(todo.id)} />);
   });
 
   return (
@@ -33,14 +33,16 @@ function TodoList(props) {
 }
 
 function TodoItem(props) {
-  const { title, onCheck } = props;
+  const { todo, onCheck } = props;
+  const todoClass = todo.complete ? 'todoItem-title todoItem-completed' : 'todoItem-title';
+  const starClass = todo.complete ? 'todoItem-star todoItem-star-active' : 'todoItem-star';
   return (
     <div className="todoItem">
-      <Checkbox onChange={onCheck} />
-      <div className="todoItem-title">
-        {title}
+      <Checkbox checked={todo.complete} onChange={onCheck} />
+      <div className={todoClass}>
+        {todo.title}
       </div>
-      <Icon type="star-o" />
+      <Icon type="star-o" onClick={onCheck} className={starClass} />
     </div>
   );
 }
