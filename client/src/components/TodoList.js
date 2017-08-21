@@ -2,15 +2,27 @@ import React from 'react';
 import { Checkbox, Icon } from 'antd';
 import '../styles/todoItem.css';
 
-function TodoList(props) {
-  const { todos } = props;
-  const rows = [];
+function getVisibleTodos(todos, visible) {
+  switch (visible) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETE':
+      console.log(123);
+      return todos.filter(t => t.complete);
+    case 'SHOW_ACTIVE':
+      return todos.filter(t => !t.complete);
+    default:
+      return todos;
+  }
+}
 
-  todos.forEach((todo) => {
-    if (todo.complete) {
-      return;
-    }
-    rows.push(<TodoItem key={todo.id} title={todo.title} />);
+function TodoList(props) {
+  const { todos, visible, handleCheck } = props;
+  const rows = [];
+  const visibleTodos = getVisibleTodos(todos, visible);
+  console.log(visibleTodos);
+  visibleTodos.forEach((todo, index) => {
+    rows.push(<TodoItem key={todo.id} title={todo.title} onCheck={() => handleCheck(todo.id)} />);
   });
 
   return (
@@ -21,10 +33,10 @@ function TodoList(props) {
 }
 
 function TodoItem(props) {
-  const { title } = props;
+  const { title, onCheck } = props;
   return (
     <div className="todoItem">
-      <Checkbox />
+      <Checkbox onChange={onCheck} />
       <div className="todoItem-title">
         {title}
       </div>
