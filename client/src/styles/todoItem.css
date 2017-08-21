@@ -1,0 +1,13 @@
+.todoItem {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 0 10px;
+  border-radius: 3px;
+  border: 1px solid #ececec;
+}
+
+.todoItem-title {
+  flex: 1 1 auto;
+}
